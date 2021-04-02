@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AlgoSetup
@@ -30,6 +31,11 @@ namespace AlgoSetup
                 SaveData();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while saving data:"); }
+
+            string s = "";
+
+            foreach (string t in temp_cppAuto)
+                s += t + "/";
         }
 
         // Temp.
@@ -69,6 +75,23 @@ namespace AlgoSetup
                 TempOpen();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while opening the files:"); }
+
+            // This is for autocomplete.
+            if (!temp_cppAuto.Contains(temp_cppFilename))
+            {
+                string[] newAuto = new string[temp_cppAuto.Length + 1];
+                temp_cppAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = temp_cppFilename;
+                Set_temp_cppAuto(newAuto);
+            }
+
+            if (!temp_inOutAuto.Contains(temp_inOutFilename))
+            {
+                string[] newAuto = new string[temp_inOutAuto.Length + 1];
+                temp_inOutAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = temp_inOutFilename;
+                Set_temp_inOutAuto(newAuto);
+            }
         }
 
         private void Setup_temp_createB_Click(object sender, EventArgs e)
@@ -78,6 +101,23 @@ namespace AlgoSetup
                 TempCreate();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while creating the files:"); }
+
+            // This is for autocomplete.
+            if (!temp_cppAuto.Contains(temp_cppFilename))
+            {
+                string[] newAuto = new string[temp_cppAuto.Length + 1];
+                temp_cppAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = temp_cppFilename;
+                Set_temp_inOutAuto(newAuto);
+            }
+
+            if (!temp_inOutAuto.Contains(temp_inOutFilename))
+            {
+                string[] newAuto = new string[temp_inOutAuto.Length + 1];
+                temp_inOutAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = temp_inOutFilename;
+                Set_temp_cppAuto(newAuto);
+            }
         }
 
         // Archive.
@@ -117,6 +157,23 @@ namespace AlgoSetup
                 ArchiveOpen();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while opening the files:"); }
+
+            // This is for autocomplete.
+            if (!archive_cppAuto.Contains(archive_cppFilename))
+            {
+                string[] newAuto = new string[archive_cppAuto.Length + 1];
+                archive_cppAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = archive_cppFilename;
+                Set_archive_cppAuto(newAuto);
+            }
+
+            if (!archive_folderAuto.Contains(archive_folder))
+            {
+                string[] newAuto = new string[archive_folderAuto.Length + 1];
+                archive_folderAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = archive_folder;
+                Set_archive_folderAuto(newAuto);
+            }
         }
 
         private void Setup_archive_createB_Click(object sender, EventArgs e)
@@ -126,6 +183,23 @@ namespace AlgoSetup
                 ArchiveCreate();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while creating the files:"); }
+
+            // This is for autocomplete.
+            if (!archive_cppAuto.Contains(archive_cppFilename))
+            {
+                string[] newAuto = new string[archive_cppAuto.Length + 1];
+                archive_cppAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = archive_cppFilename;
+                Set_archive_cppAuto(newAuto);
+            }
+
+            if (!archive_folderAuto.Contains(archive_folder))
+            {
+                string[] newAuto = new string[archive_folderAuto.Length + 1];
+                archive_folderAuto.CopyTo(newAuto, 0);
+                newAuto[newAuto.Length - 1] = archive_folder;
+                Set_archive_folderAuto(newAuto);
+            }
         }
 
         // Preferences.
@@ -215,7 +289,7 @@ namespace AlgoSetup
 
         private void Pref_saveDataForAutocompleteCB_CheckedChanged(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Set_saveAutocomplete(pref_saveDataForAutocompleteCB.Checked);
         }
     }
 }

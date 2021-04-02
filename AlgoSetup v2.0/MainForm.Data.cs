@@ -22,9 +22,13 @@ namespace AlgoSetup
         bool openAfterCreate = true;
         bool exitAfterOpenCreate = true;
         string openWith = "explorer";
+        bool saveAutocomplete = true;
 
-        // Auxiliar.
-
+        // Autocomplete.
+        string[] temp_cppAuto = new string[0];
+        string[] temp_inOutAuto = new string[0];
+        string[] archive_cppAuto = new string[0];
+        string[] archive_folderAuto = new string[0];
 
         // Temp.
         void Set_temp_cppFilename(string value)
@@ -108,6 +112,41 @@ namespace AlgoSetup
         {
             pref_openFilesWithTB.Text = value;
             openWith = value;
+        }
+
+        void Set_saveAutocomplete(bool value)
+        {
+            pref_saveDataForAutocompleteCB.Checked = value;
+            saveAutocomplete = value;
+        }
+
+        // Autocomplete.
+        void Set_temp_cppAuto(string[] value)
+        {
+            setup_temp_cppFilenameTB.AutoCompleteCustomSource.Clear();
+            setup_temp_cppFilenameTB.AutoCompleteCustomSource.AddRange(value);
+            temp_cppAuto = value;
+        }
+
+        void Set_temp_inOutAuto(string[] value)
+        {
+            setup_temp_inOutFilenameTB.AutoCompleteCustomSource.Clear();
+            setup_temp_inOutFilenameTB.AutoCompleteCustomSource.AddRange(value);
+            temp_inOutAuto = value;
+        }
+
+        void Set_archive_cppAuto(string[] value)
+        {
+            setup_archive_cppFilenameTB.AutoCompleteCustomSource.Clear();
+            setup_archive_cppFilenameTB.AutoCompleteCustomSource.AddRange(value);
+            archive_cppAuto = value;
+        }
+
+        void Set_archive_folderAuto(string[] value)
+        {
+            setup_archive_folderTB.AutoCompleteCustomSource.Clear();
+            setup_archive_folderTB.AutoCompleteCustomSource.AddRange(value);
+            archive_folderAuto = value;
         }
 
         /// <summary> This method must be called when the root folders change or anything that might break the paths for Open / Create. </summary>

@@ -8,6 +8,7 @@ namespace AlgoSetup
     partial class MainForm
     {
         const string PREF_FILENAME = "preferences.algosetup";
+        const string AUTOCOMPLETE_FILENAME = "autocomplete.algosetup";
         const string START_CODE_FOLDER = "Start Code";
         const string START_CODE_TEMP_FILENAME = "startcode_temp.txt";
         const string START_CODE_TEMP_INOUT_FILENAME = "startcode_temp_inout.txt";
@@ -24,12 +25,22 @@ namespace AlgoSetup
             path = Path.Combine(Application.StartupPath, "Archive");
             Directory.CreateDirectory(path);
 
-            // Load pref file if it exists, else set everything to default.
+            // Load pref and autocomplete files if they exists, else set everything to default.
             path = Path.Combine(Application.LocalUserAppDataPath, PREF_FILENAME);
-
             if (File.Exists(path))
                 LoadPref();
             else SetDefaultPref();
+
+            path = Path.Combine(Application.LocalUserAppDataPath, AUTOCOMPLETE_FILENAME);
+            if (File.Exists(path))
+                LoadAutocomplete();
+            else
+            {
+                Set_temp_cppAuto(new string[0]);
+                Set_temp_inOutAuto(new string[0]);
+                Set_archive_cppAuto(new string[0]);
+                Set_archive_folderAuto(new string[0]);
+            }
 
             // Create the default Start Code files if they don't exist (probably because it is the first time the app is started).
             path = Path.Combine(Application.LocalUserAppDataPath, START_CODE_FOLDER);
@@ -53,9 +64,10 @@ namespace AlgoSetup
         void SaveData()
         {
             SavePref();
+            SaveAutocomplete();
         }
 
-        /// <summary> Just for loading the data inside preferences.algosetup </summary>
+        /// <summary> Just for loading the data inside preferences.algosetup. </summary>
         void LoadPref()
         {
             string path = Path.Combine(Application.LocalUserAppDataPath, PREF_FILENAME);
@@ -124,6 +136,42 @@ namespace AlgoSetup
                         s = fin.ReadLine();
                         Set_openWith(s);
                     }
+                    else if (s == nameof(saveAutocomplete))
+                    {
+                        s = fin.ReadLine();
+                        Set_saveAutocomplete(bool.Parse(s));
+                    }
+                }
+            }
+        }
+
+        /// <summary> Just for loading the data inside autocomplete.algosetup. </summary>
+        void LoadAutocomplete()
+        {
+            string path = Path.Combine(Application.LocalUserAppDataPath, AUTOCOMPLETE_FILENAME);
+            using (var fin = new StreamReader(path))
+            {
+                string s;
+                while ((s = fin.ReadLine()) != null)
+                {
+                    if (s != nameof(temp_cppAuto) && s != nameof(temp_inOutAuto) && s != nameof(archive_cppAuto) && s != nameof(archive_folderAuto))
+                        continue;
+
+                    string t = fin.ReadLine();
+                    int n = int.Parse(t);
+                    string[] S = new string[n];
+
+                    for (int i = 0; i < n; ++i)
+                        S[i] = fin.ReadLine();
+
+                    if (s == nameof(temp_cppAuto))
+                        Set_temp_cppAuto(S);
+                    else if (s == nameof(temp_inOutAuto))
+                        Set_temp_inOutAuto(S);
+                    else if (s == nameof(archive_cppAuto))
+                        Set_archive_cppAuto(S);
+                    else if (s == nameof(archive_folderAuto))
+                        Set_archive_folderAuto(S);
                 }
             }
         }
@@ -161,6 +209,40 @@ namespace AlgoSetup
                 fout.WriteLine(exitAfterOpenCreate);
                 fout.WriteLine(nameof(openWith));
                 fout.WriteLine(openWith);
+                fout.WriteLine(nameof(saveAutocomplete));
+                fout.WriteLine(saveAutocomplete);
+            }
+        }
+
+        /// <summary> Just for saving the data inside autocomplete.algosetup </summary>
+        void SaveAutocomplete()
+        {
+            string path = Path.Combine(Application.LocalUserAppDataPath, AUTOCOMPLETE_FILENAME);
+            using (var fout = new StreamWriter(path))
+            {
+                fout.WriteLine(nameof(temp_cppAuto));
+                fout.WriteLine(temp_cppAuto.Length);
+
+                foreach (string s in temp_cppAuto)
+                    fout.WriteLine(s);
+
+                fout.WriteLine(nameof(temp_inOutAuto));
+                fout.WriteLine(temp_inOutAuto.Length);
+
+                foreach (string s in temp_inOutAuto)
+                    fout.WriteLine(s);
+
+                fout.WriteLine(nameof(archive_cppAuto));
+                fout.WriteLine(archive_cppAuto.Length);
+
+                foreach (string s in archive_cppAuto)
+                    fout.WriteLine(s);
+
+                fout.WriteLine(nameof(archive_folderAuto));
+                fout.WriteLine(archive_folderAuto.Length);
+
+                foreach (string s in archive_folderAuto)
+                    fout.WriteLine(s);
             }
         }
 
@@ -183,6 +265,7 @@ namespace AlgoSetup
             Set_openAfterCreate(true);
             Set_exitAfterOpenCreate(true);
             Set_openWith("explorer");
+            Set_saveAutocomplete(true);
         }
 
         #region Methods for creating Start Code files.

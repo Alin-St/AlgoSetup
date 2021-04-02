@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace AlgoSetup
@@ -29,13 +30,13 @@ namespace AlgoSetup
 
             CreateThree(tempRootFolder, temp_cppFilename + ".cpp", temp_inOutFiles ? temp_inOutFilename : null, cppText);
 
+            UpdateOpenCreateEnabled();
+
             if (openAfterCreate)
                 TempOpen();
             else if (exitAfterOpenCreate)
                 Application.Exit();
             else MessageBox.Show("Files created!", Application.ProductName);
-
-            UpdateOpenCreateEnabled();
         }
 
         /// <summary> This is basically the button's click event just with a nicer name and without the try catch.

@@ -114,6 +114,8 @@ namespace AlgoSetup
             // setup_temp_cppFilenameTB
             // 
             this.setup_temp_cppFilenameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.setup_temp_cppFilenameTB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.setup_temp_cppFilenameTB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.setup_temp_cppFilenameTB.Location = new System.Drawing.Point(113, 41);
             this.setup_temp_cppFilenameTB.Name = "setup_temp_cppFilenameTB";
             this.setup_temp_cppFilenameTB.Size = new System.Drawing.Size(218, 26);
@@ -190,6 +192,8 @@ namespace AlgoSetup
             // setup_temp_inOutFilenameTB
             // 
             this.setup_temp_inOutFilenameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.setup_temp_inOutFilenameTB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.setup_temp_inOutFilenameTB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.setup_temp_inOutFilenameTB.Location = new System.Drawing.Point(124, 113);
             this.setup_temp_inOutFilenameTB.Name = "setup_temp_inOutFilenameTB";
             this.setup_temp_inOutFilenameTB.Size = new System.Drawing.Size(192, 26);
@@ -251,6 +255,8 @@ namespace AlgoSetup
             // setup_archive_folderTB
             // 
             this.setup_archive_folderTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.setup_archive_folderTB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.setup_archive_folderTB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.setup_archive_folderTB.Location = new System.Drawing.Point(69, 113);
             this.setup_archive_folderTB.Name = "setup_archive_folderTB";
             this.setup_archive_folderTB.Size = new System.Drawing.Size(305, 26);
@@ -284,6 +290,8 @@ namespace AlgoSetup
             // setup_archive_cppFilenameTB
             // 
             this.setup_archive_cppFilenameTB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.setup_archive_cppFilenameTB.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.setup_archive_cppFilenameTB.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.setup_archive_cppFilenameTB.Location = new System.Drawing.Point(112, 41);
             this.setup_archive_cppFilenameTB.Name = "setup_archive_cppFilenameTB";
             this.setup_archive_cppFilenameTB.Size = new System.Drawing.Size(218, 26);
@@ -382,8 +390,8 @@ namespace AlgoSetup
             // 
             this.pref_editCodeOpenPrefSC.Panel2.Controls.Add(this.pref_openPrefFolderB);
             this.pref_editCodeOpenPrefSC.Panel2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(684, 26);
-            this.pref_editCodeOpenPrefSC.SplitterDistance = 335;
+            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(667, 26);
+            this.pref_editCodeOpenPrefSC.SplitterDistance = 326;
             this.pref_editCodeOpenPrefSC.SplitterWidth = 1;
             this.pref_editCodeOpenPrefSC.TabIndex = 10;
             // 
@@ -392,7 +400,7 @@ namespace AlgoSetup
             this.pref_editStartCodeB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_editStartCodeB.Location = new System.Drawing.Point(0, 0);
             this.pref_editStartCodeB.Name = "pref_editStartCodeB";
-            this.pref_editStartCodeB.Size = new System.Drawing.Size(329, 26);
+            this.pref_editStartCodeB.Size = new System.Drawing.Size(320, 26);
             this.pref_editStartCodeB.TabIndex = 6;
             this.pref_editStartCodeB.Text = "Edit Start Code";
             this.pref_editStartCodeB.UseVisualStyleBackColor = true;
@@ -403,7 +411,7 @@ namespace AlgoSetup
             this.pref_openPrefFolderB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_openPrefFolderB.Location = new System.Drawing.Point(6, 0);
             this.pref_openPrefFolderB.Name = "pref_openPrefFolderB";
-            this.pref_openPrefFolderB.Size = new System.Drawing.Size(342, 26);
+            this.pref_openPrefFolderB.Size = new System.Drawing.Size(334, 26);
             this.pref_openPrefFolderB.TabIndex = 11;
             this.pref_openPrefFolderB.Text = "Open Preferences Folder";
             this.pref_openPrefFolderB.UseVisualStyleBackColor = true;
@@ -412,7 +420,6 @@ namespace AlgoSetup
             // pref_saveDataForAutocompleteCB
             // 
             this.pref_saveDataForAutocompleteCB.AutoSize = true;
-            this.pref_saveDataForAutocompleteCB.Enabled = false;
             this.pref_saveDataForAutocompleteCB.Location = new System.Drawing.Point(21, 291);
             this.pref_saveDataForAutocompleteCB.Name = "pref_saveDataForAutocompleteCB";
             this.pref_saveDataForAutocompleteCB.Size = new System.Drawing.Size(218, 22);
@@ -427,7 +434,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_openFilesWithTB.Location = new System.Drawing.Point(137, 241);
             this.pref_openFilesWithTB.Name = "pref_openFilesWithTB";
-            this.pref_openFilesWithTB.Size = new System.Drawing.Size(568, 26);
+            this.pref_openFilesWithTB.Size = new System.Drawing.Size(551, 26);
             this.pref_openFilesWithTB.TabIndex = 8;
             this.pref_openFilesWithTB.Text = "explorer";
             this.pref_openFilesWithTB.TextChanged += new System.EventHandler(this.Pref_openFilesWithTB_TextChanged);
@@ -473,7 +480,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_archiveSetupFolderB.Location = new System.Drawing.Point(182, 71);
             this.pref_archiveSetupFolderB.Name = "pref_archiveSetupFolderB";
-            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(523, 26);
+            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(506, 26);
             this.pref_archiveSetupFolderB.TabIndex = 3;
             this.pref_archiveSetupFolderB.Text = "C:\\";
             this.pref_archiveSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -500,7 +507,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_tempSetupFolderB.Location = new System.Drawing.Point(168, 28);
             this.pref_tempSetupFolderB.Name = "pref_tempSetupFolderB";
-            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(537, 26);
+            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(520, 26);
             this.pref_tempSetupFolderB.TabIndex = 1;
             this.pref_tempSetupFolderB.Text = "C:\\";
             this.pref_tempSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
