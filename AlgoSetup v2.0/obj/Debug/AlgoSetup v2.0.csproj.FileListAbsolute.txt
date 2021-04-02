@@ -1,0 +1,10 @@
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\bin\Debug\AlgoSetup v2.0.exe.config
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\bin\Debug\AlgoSetup v2.0.exe
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\bin\Debug\AlgoSetup v2.0.pdb
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup v2.0.csprojAssemblyReference.cache
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup.Properties.Resources.resources
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup v2.0.csproj.GenerateResource.cache
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup v2.0.csproj.CoreCompileInputs.cache
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup v2.0.exe
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup v2.0.pdb
+C:\S A G\Alin\Proiecte\Programe C#\AlgoSetup v2.0\obj\Debug\AlgoSetup.MainForm.resources
