@@ -373,10 +373,10 @@ namespace AlgoSetup
             this.preferencesTP.Controls.Add(this.pref_archiveSetupFolderL);
             this.preferencesTP.Controls.Add(this.pref_tempSetupFolderB);
             this.preferencesTP.Controls.Add(this.pref_tempSetupFolderL);
-            this.preferencesTP.Location = new System.Drawing.Point(4, 27);
+            this.preferencesTP.Location = new System.Drawing.Point(4, 22);
             this.preferencesTP.Name = "preferencesTP";
             this.preferencesTP.Padding = new System.Windows.Forms.Padding(3);
-            this.preferencesTP.Size = new System.Drawing.Size(768, 237);
+            this.preferencesTP.Size = new System.Drawing.Size(768, 242);
             this.preferencesTP.TabIndex = 1;
             this.preferencesTP.Text = "Preferences";
             this.preferencesTP.UseVisualStyleBackColor = true;
@@ -386,7 +386,7 @@ namespace AlgoSetup
             this.pref_openWithOfdB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_openWithOfdB.BackgroundImage = global::AlgoSetup.Properties.Resources.OpenFileIcon;
             this.pref_openWithOfdB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pref_openWithOfdB.Location = new System.Drawing.Point(702, 241);
+            this.pref_openWithOfdB.Location = new System.Drawing.Point(651, 241);
             this.pref_openWithOfdB.Name = "pref_openWithOfdB";
             this.pref_openWithOfdB.Size = new System.Drawing.Size(26, 26);
             this.pref_openWithOfdB.TabIndex = 13;
@@ -432,8 +432,8 @@ namespace AlgoSetup
             // 
             this.pref_editCodeOpenPrefSC.Panel2.Controls.Add(this.pref_openPrefFolderB);
             this.pref_editCodeOpenPrefSC.Panel2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(707, 26);
-            this.pref_editCodeOpenPrefSC.SplitterDistance = 343;
+            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(656, 26);
+            this.pref_editCodeOpenPrefSC.SplitterDistance = 312;
             this.pref_editCodeOpenPrefSC.SplitterWidth = 1;
             this.pref_editCodeOpenPrefSC.TabIndex = 10;
             // 
@@ -442,7 +442,7 @@ namespace AlgoSetup
             this.pref_editStartCodeB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_editStartCodeB.Location = new System.Drawing.Point(0, 0);
             this.pref_editStartCodeB.Name = "pref_editStartCodeB";
-            this.pref_editStartCodeB.Size = new System.Drawing.Size(337, 26);
+            this.pref_editStartCodeB.Size = new System.Drawing.Size(306, 26);
             this.pref_editStartCodeB.TabIndex = 6;
             this.pref_editStartCodeB.Text = "Edit Start Code";
             this.pref_editStartCodeB.UseVisualStyleBackColor = true;
@@ -453,7 +453,7 @@ namespace AlgoSetup
             this.pref_openPrefFolderB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_openPrefFolderB.Location = new System.Drawing.Point(6, 0);
             this.pref_openPrefFolderB.Name = "pref_openPrefFolderB";
-            this.pref_openPrefFolderB.Size = new System.Drawing.Size(357, 26);
+            this.pref_openPrefFolderB.Size = new System.Drawing.Size(337, 26);
             this.pref_openPrefFolderB.TabIndex = 11;
             this.pref_openPrefFolderB.Text = "Open Preferences Folder";
             this.pref_openPrefFolderB.UseVisualStyleBackColor = true;
@@ -476,7 +476,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_openFilesWithTB.Location = new System.Drawing.Point(137, 241);
             this.pref_openFilesWithTB.Name = "pref_openFilesWithTB";
-            this.pref_openFilesWithTB.Size = new System.Drawing.Size(559, 26);
+            this.pref_openFilesWithTB.Size = new System.Drawing.Size(508, 26);
             this.pref_openFilesWithTB.TabIndex = 8;
             this.pref_openFilesWithTB.Text = "explorer";
             this.pref_openFilesWithTB.TextChanged += new System.EventHandler(this.Pref_openFilesWithTB_TextChanged);
@@ -522,7 +522,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_archiveSetupFolderB.Location = new System.Drawing.Point(182, 71);
             this.pref_archiveSetupFolderB.Name = "pref_archiveSetupFolderB";
-            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(546, 26);
+            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(495, 26);
             this.pref_archiveSetupFolderB.TabIndex = 3;
             this.pref_archiveSetupFolderB.Text = "C:\\";
             this.pref_archiveSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -533,7 +533,7 @@ namespace AlgoSetup
             // 
             this.pref_archiveSetupFolderL.AutoSize = true;
             this.pref_archiveSetupFolderL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pref_archiveSetupFolderL.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pref_archiveSetupFolderL.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pref_archiveSetupFolderL.ForeColor = System.Drawing.Color.Blue;
             this.pref_archiveSetupFolderL.Location = new System.Drawing.Point(18, 75);
             this.pref_archiveSetupFolderL.Name = "pref_archiveSetupFolderL";
@@ -542,6 +542,8 @@ namespace AlgoSetup
             this.pref_archiveSetupFolderL.Text = "Archive Setup Folder:";
             this.pref_tempSetupFolderTT.SetToolTip(this.pref_archiveSetupFolderL, "Open the Archive Setup Folder");
             this.pref_archiveSetupFolderL.Click += new System.EventHandler(this.Pref_archiveSetupFolderL_Click);
+            this.pref_archiveSetupFolderL.MouseEnter += new System.EventHandler(this.Pref_archiveSetupFolderL_MouseEnter);
+            this.pref_archiveSetupFolderL.MouseLeave += new System.EventHandler(this.Pref_archiveSetupFolderL_MouseLeave);
             // 
             // pref_tempSetupFolderB
             // 
@@ -549,7 +551,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_tempSetupFolderB.Location = new System.Drawing.Point(168, 28);
             this.pref_tempSetupFolderB.Name = "pref_tempSetupFolderB";
-            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(560, 26);
+            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(509, 26);
             this.pref_tempSetupFolderB.TabIndex = 1;
             this.pref_tempSetupFolderB.Text = "C:\\";
             this.pref_tempSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -560,7 +562,7 @@ namespace AlgoSetup
             // 
             this.pref_tempSetupFolderL.AutoSize = true;
             this.pref_tempSetupFolderL.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pref_tempSetupFolderL.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pref_tempSetupFolderL.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pref_tempSetupFolderL.ForeColor = System.Drawing.Color.Blue;
             this.pref_tempSetupFolderL.Location = new System.Drawing.Point(18, 32);
             this.pref_tempSetupFolderL.Name = "pref_tempSetupFolderL";
@@ -569,6 +571,8 @@ namespace AlgoSetup
             this.pref_tempSetupFolderL.Text = "Temp Setup Folder:";
             this.pref_tempSetupFolderTT.SetToolTip(this.pref_tempSetupFolderL, "Open the Temp Setup Folder");
             this.pref_tempSetupFolderL.Click += new System.EventHandler(this.Pref_tempSetupFolderL_Click);
+            this.pref_tempSetupFolderL.MouseEnter += new System.EventHandler(this.Pref_tempSetupFolderL_MouseEnter);
+            this.pref_tempSetupFolderL.MouseLeave += new System.EventHandler(this.Pref_tempSetupFolderL_MouseLeave);
             // 
             // MainForm
             // 
@@ -583,6 +587,8 @@ namespace AlgoSetup
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.MainForm_Paint);
+            this.MouseEnter += new System.EventHandler(this.MainForm_MouseEnter);
             this.setup_tempSetupGB.ResumeLayout(false);
             this.setup_tempSetupGB.PerformLayout();
             this.setup_archiveSetupGB.ResumeLayout(false);

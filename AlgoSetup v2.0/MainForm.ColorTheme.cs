@@ -97,7 +97,7 @@ namespace AlgoSetup
                 preferencesTP.BackColor = default;
                 preferencesTP.ForeColor = default;
 
-                pref_tempSetupFolderL.ForeColor = default;
+                pref_tempSetupFolderL.ForeColor = Color.Blue;
 
                 pref_tempSetupFolderB.FlatStyle = FlatStyle.System;
                 pref_tempSetupFolderB.BackColor = default;
@@ -105,7 +105,7 @@ namespace AlgoSetup
                 pref_tempSetupFolderB.Font = new Font("Arial", 12);
                 pref_tempSetupFolderB.Cursor = default;
 
-                pref_archiveSetupFolderL.ForeColor = default;
+                pref_archiveSetupFolderL.ForeColor = Color.Blue;
 
                 pref_archiveSetupFolderB.FlatStyle = FlatStyle.System;
                 pref_archiveSetupFolderB.BackColor = default;

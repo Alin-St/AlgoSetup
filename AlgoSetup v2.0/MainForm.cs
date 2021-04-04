@@ -205,6 +205,11 @@ namespace AlgoSetup
         }
 
         // Preferences.
+        private void Pref_tempSetupFolderL_MouseEnter(object sender, EventArgs e)
+        {
+            pref_tempSetupFolderL.Font = new Font(pref_tempSetupFolderL.Font, FontStyle.Underline);
+        }
+
         private void Pref_tempSetupFolderL_Click(object sender, EventArgs e)
         {
             try
@@ -213,6 +218,11 @@ namespace AlgoSetup
                 process?.Dispose();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while opening the folder:"); }
+        }
+
+        private void Pref_tempSetupFolderL_MouseLeave(object sender, EventArgs e)
+        {
+            pref_tempSetupFolderL.Font = new Font(pref_tempSetupFolderL.Font, FontStyle.Regular);
         }
 
         private void Pref_tempSetupFolderB_Click(object sender, EventArgs e)
@@ -229,6 +239,11 @@ namespace AlgoSetup
             }
         }
 
+        private void Pref_archiveSetupFolderL_MouseEnter(object sender, EventArgs e)
+        {
+            pref_archiveSetupFolderL.Font = new Font(pref_tempSetupFolderL.Font, FontStyle.Underline);
+        }
+
         private void Pref_archiveSetupFolderL_Click(object sender, EventArgs e)
         {
             try
@@ -237,6 +252,11 @@ namespace AlgoSetup
                 process?.Dispose();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message, "Error while opening the folder:"); }
+        }
+
+        private void Pref_archiveSetupFolderL_MouseLeave(object sender, EventArgs e)
+        {
+            pref_archiveSetupFolderL.Font = new Font(pref_tempSetupFolderL.Font, FontStyle.Regular);
         }
 
         private void Pref_archiveSetupFolderB_Click(object sender, EventArgs e)
@@ -339,6 +359,16 @@ namespace AlgoSetup
                 Size = new Size(816, 500);
                 dontSetSizeChangedFlag = false;
             }
+        }
+
+        private void MainForm_Paint(object sender, PaintEventArgs e)
+        {
+            UpdateOpenCreateEnabled();
+        }
+
+        private void MainForm_MouseEnter(object sender, EventArgs e)
+        {
+            UpdateOpenCreateEnabled();
         }
     }
 }
