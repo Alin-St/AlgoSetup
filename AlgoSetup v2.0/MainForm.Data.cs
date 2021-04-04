@@ -23,12 +23,21 @@ namespace AlgoSetup
         bool exitAfterOpenCreate = true;
         string openWith = "explorer";
         bool saveAutocomplete = true;
+        ColorTheme colorTheme = ColorTheme.Default;
 
         // Autocomplete.
         string[] temp_cppAuto = new string[0];
         string[] temp_inOutAuto = new string[0];
         string[] archive_cppAuto = new string[0];
         string[] archive_folderAuto = new string[0];
+
+        // Auxiliar.
+        bool isTempCppCorrect = true;
+        bool isTempInOutCorrect = true;
+        bool isArchiveCppCorrect = true;
+        bool isArchiveFolderCorrect = true;
+        /// <summary> If false (the user didn't change the size) I resize the window to fit content. </summary>
+        bool sizeChanged = false;
 
         // Temp.
         void Set_temp_cppFilename(string value)
@@ -120,6 +129,13 @@ namespace AlgoSetup
             saveAutocomplete = value;
         }
 
+        void Set_colorTheme(ColorTheme value)
+        {
+            pref_colorThemeCB.Text = value.ToString();
+            colorTheme = value;
+            UpdateColorTheme();
+        }
+
         // Autocomplete.
         void Set_temp_cppAuto(string[] value)
         {
@@ -147,6 +163,36 @@ namespace AlgoSetup
             setup_archive_folderTB.AutoCompleteCustomSource.Clear();
             setup_archive_folderTB.AutoCompleteCustomSource.AddRange(value);
             archive_folderAuto = value;
+        }
+
+        // Auxiliar.
+        void Set_isTempCppCorrect(bool value)
+        {
+            isTempCppCorrect = value;
+            UpdateColorTheme();
+        }
+
+        void Set_isTempInOutCorrect(bool value)
+        {
+            isTempInOutCorrect = value;
+            UpdateColorTheme();
+        }
+
+        void Set_isArchiveCppCorrect(bool value)
+        {
+            isArchiveCppCorrect = value;
+            UpdateColorTheme();
+        }
+
+        void Set_isArchiveFolderCorrect(bool value)
+        {
+            isArchiveFolderCorrect = value;
+            UpdateColorTheme();
+        }
+
+        void Set_sizeChanged(bool value)
+        {
+            sizeChanged = value;
         }
 
         /// <summary> This method must be called when the root folders change or anything that might break the paths for Open / Create. </summary>

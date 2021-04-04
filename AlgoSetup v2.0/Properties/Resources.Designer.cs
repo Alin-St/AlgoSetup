@@ -61,6 +61,16 @@ namespace AlgoSetup.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OpenFileIcon {
+            get {
+                object obj = ResourceManager.GetObject("OpenFileIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #include &lt;iostream&gt;
         ///
         ///using namespace std;
@@ -80,13 +90,14 @@ namespace AlgoSetup.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #include &lt;iostream&gt;
+        ///   Looks up a localized string similar to // Every instance of $$filename$$ will be replaced by the in/out filename.
+        ///#include &lt;iostream&gt;
         ///#include &lt;fstream&gt;
         ///
         ///using namespace std;
         ///
-        ///ifstream fin(&quot;filename.in&quot;);
-        ///ofstream fout(&quot;filename.out&quot;);
+        ///ifstream fin(&quot;$$filename$$.in&quot;);
+        ///ofstream fout(&quot;$$filename$$.out&quot;);
         ///
         ///int main()
         ///{
@@ -122,13 +133,14 @@ namespace AlgoSetup.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #include &lt;iostream&gt;
+        ///   Looks up a localized string similar to // Every instance of $$filename$$ will be replaced by the in/out filename.
+        ///#include &lt;iostream&gt;
         ///#include &lt;fstream&gt;
         ///
         ///using namespace std;
         ///
-        ///ifstream fin(&quot;filename.in&quot;);
-        ///ofstream fout(&quot;filename.out&quot;);
+        ///ifstream fin(&quot;$$filename$$.in&quot;);
+        ///ofstream fout(&quot;$$filename$$.out&quot;);
         ///
         ///int main()
         ///{

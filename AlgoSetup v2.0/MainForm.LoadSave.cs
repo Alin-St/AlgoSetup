@@ -27,13 +27,17 @@ namespace AlgoSetup
 
             // Load pref and autocomplete files if they exists, else set everything to default.
             path = Path.Combine(Application.LocalUserAppDataPath, PREF_FILENAME);
-            if (File.Exists(path))
-                LoadPref();
+            if (File.Exists(path)) {
+                try { LoadPref(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
             else SetDefaultPref();
 
             path = Path.Combine(Application.LocalUserAppDataPath, AUTOCOMPLETE_FILENAME);
-            if (File.Exists(path))
-                LoadAutocomplete();
+            if (File.Exists(path)) {
+                try { LoadAutocomplete(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
             else
             {
                 Set_temp_cppAuto(new string[0]);
@@ -47,24 +51,35 @@ namespace AlgoSetup
 
             Directory.CreateDirectory(path);
 
-            if (!File.Exists(Path.Combine(path, START_CODE_TEMP_FILENAME)))
-                CreateTempStartcode();
+            if (!File.Exists(Path.Combine(path, START_CODE_TEMP_FILENAME))) {
+                try { CreateTempStartcode(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
 
-            if (!File.Exists(Path.Combine(path, START_CODE_TEMP_INOUT_FILENAME)))
-                CreateTempInoutStartcode();
+            if (!File.Exists(Path.Combine(path, START_CODE_TEMP_INOUT_FILENAME))) {
+                try { CreateTempInoutStartcode(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
 
-            if (!File.Exists(Path.Combine(path, START_CODE_ARCHIVE_FILENAME)))
-                CreateArchiveStartcode();
+            if (!File.Exists(Path.Combine(path, START_CODE_ARCHIVE_FILENAME))) {
+                try { CreateArchiveStartcode(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
 
-            if (!File.Exists(Path.Combine(path, START_CODE_ARCHIVE_INOUT_FILENAME)))
-                CreateArchiveInoutStartcode();
+            if (!File.Exists(Path.Combine(path, START_CODE_ARCHIVE_INOUT_FILENAME))) {
+                try { CreateArchiveInoutStartcode(); }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+            }
         }
 
         /// <summary> Method called on MainForm_Close, to work on everything that is needed on App closing, related to saving data. </summary>
         void SaveData()
         {
-            SavePref();
-            SaveAutocomplete();
+            try { SavePref(); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
+
+            try { SaveAutocomplete(); }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Error:"); }
         }
 
         /// <summary> Just for loading the data inside preferences.algosetup. </summary>
@@ -141,6 +156,11 @@ namespace AlgoSetup
                         s = fin.ReadLine();
                         Set_saveAutocomplete(bool.Parse(s));
                     }
+                    else if (s == nameof(colorTheme))
+                    {
+                        s = fin.ReadLine();
+                        Set_colorTheme((ColorTheme)Enum.Parse(typeof(ColorTheme), s));
+                    }
                 }
             }
         }
@@ -211,6 +231,8 @@ namespace AlgoSetup
                 fout.WriteLine(openWith);
                 fout.WriteLine(nameof(saveAutocomplete));
                 fout.WriteLine(saveAutocomplete);
+                fout.WriteLine(nameof(colorTheme));
+                fout.WriteLine(colorTheme);
             }
         }
 
@@ -266,6 +288,7 @@ namespace AlgoSetup
             Set_exitAfterOpenCreate(true);
             Set_openWith("explorer");
             Set_saveAutocomplete(true);
+            Set_colorTheme(ColorTheme.Default);
         }
 
         #region Methods for creating Start Code files.

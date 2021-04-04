@@ -54,6 +54,9 @@ namespace AlgoSetup
             this.setupTP = new System.Windows.Forms.TabPage();
             this.setup_splitContainer = new System.Windows.Forms.SplitContainer();
             this.preferencesTP = new System.Windows.Forms.TabPage();
+            this.pref_openWithOfdB = new System.Windows.Forms.Button();
+            this.pref_colorThemeL = new System.Windows.Forms.Label();
+            this.pref_colorThemeCB = new System.Windows.Forms.ComboBox();
             this.pref_editCodeOpenPrefSC = new System.Windows.Forms.SplitContainer();
             this.pref_editStartCodeB = new System.Windows.Forms.Button();
             this.pref_openPrefFolderB = new System.Windows.Forms.Button();
@@ -321,6 +324,7 @@ namespace AlgoSetup
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(776, 268);
             this.tabControl.TabIndex = 0;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.TabControl_SelectedIndexChanged);
             // 
             // setupTP
             // 
@@ -355,6 +359,10 @@ namespace AlgoSetup
             // preferencesTP
             // 
             this.preferencesTP.AutoScroll = true;
+            this.preferencesTP.AutoScrollMargin = new System.Drawing.Size(0, 50);
+            this.preferencesTP.Controls.Add(this.pref_openWithOfdB);
+            this.preferencesTP.Controls.Add(this.pref_colorThemeL);
+            this.preferencesTP.Controls.Add(this.pref_colorThemeCB);
             this.preferencesTP.Controls.Add(this.pref_editCodeOpenPrefSC);
             this.preferencesTP.Controls.Add(this.pref_saveDataForAutocompleteCB);
             this.preferencesTP.Controls.Add(this.pref_openFilesWithTB);
@@ -373,6 +381,40 @@ namespace AlgoSetup
             this.preferencesTP.Text = "Preferences";
             this.preferencesTP.UseVisualStyleBackColor = true;
             // 
+            // pref_openWithOfdB
+            // 
+            this.pref_openWithOfdB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pref_openWithOfdB.BackgroundImage = global::AlgoSetup.Properties.Resources.OpenFileIcon;
+            this.pref_openWithOfdB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pref_openWithOfdB.Location = new System.Drawing.Point(702, 241);
+            this.pref_openWithOfdB.Name = "pref_openWithOfdB";
+            this.pref_openWithOfdB.Size = new System.Drawing.Size(26, 26);
+            this.pref_openWithOfdB.TabIndex = 13;
+            this.pref_openWithOfdB.UseVisualStyleBackColor = true;
+            this.pref_openWithOfdB.Click += new System.EventHandler(this.Pref_openWithOfdB_Click);
+            // 
+            // pref_colorThemeL
+            // 
+            this.pref_colorThemeL.AutoSize = true;
+            this.pref_colorThemeL.Location = new System.Drawing.Point(18, 331);
+            this.pref_colorThemeL.Name = "pref_colorThemeL";
+            this.pref_colorThemeL.Size = new System.Drawing.Size(102, 18);
+            this.pref_colorThemeL.TabIndex = 12;
+            this.pref_colorThemeL.Text = "Color Theme:";
+            // 
+            // pref_colorThemeCB
+            // 
+            this.pref_colorThemeCB.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.pref_colorThemeCB.FormattingEnabled = true;
+            this.pref_colorThemeCB.Items.AddRange(new object[] {
+            "Default",
+            "Dark"});
+            this.pref_colorThemeCB.Location = new System.Drawing.Point(126, 328);
+            this.pref_colorThemeCB.Name = "pref_colorThemeCB";
+            this.pref_colorThemeCB.Size = new System.Drawing.Size(154, 26);
+            this.pref_colorThemeCB.TabIndex = 11;
+            this.pref_colorThemeCB.SelectedIndexChanged += new System.EventHandler(this.Pref_colorThemeCB_SelectedIndexChanged);
+            // 
             // pref_editCodeOpenPrefSC
             // 
             this.pref_editCodeOpenPrefSC.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -390,8 +432,8 @@ namespace AlgoSetup
             // 
             this.pref_editCodeOpenPrefSC.Panel2.Controls.Add(this.pref_openPrefFolderB);
             this.pref_editCodeOpenPrefSC.Panel2.Padding = new System.Windows.Forms.Padding(6, 0, 0, 0);
-            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(667, 26);
-            this.pref_editCodeOpenPrefSC.SplitterDistance = 326;
+            this.pref_editCodeOpenPrefSC.Size = new System.Drawing.Size(707, 26);
+            this.pref_editCodeOpenPrefSC.SplitterDistance = 343;
             this.pref_editCodeOpenPrefSC.SplitterWidth = 1;
             this.pref_editCodeOpenPrefSC.TabIndex = 10;
             // 
@@ -400,7 +442,7 @@ namespace AlgoSetup
             this.pref_editStartCodeB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_editStartCodeB.Location = new System.Drawing.Point(0, 0);
             this.pref_editStartCodeB.Name = "pref_editStartCodeB";
-            this.pref_editStartCodeB.Size = new System.Drawing.Size(320, 26);
+            this.pref_editStartCodeB.Size = new System.Drawing.Size(337, 26);
             this.pref_editStartCodeB.TabIndex = 6;
             this.pref_editStartCodeB.Text = "Edit Start Code";
             this.pref_editStartCodeB.UseVisualStyleBackColor = true;
@@ -411,7 +453,7 @@ namespace AlgoSetup
             this.pref_openPrefFolderB.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pref_openPrefFolderB.Location = new System.Drawing.Point(6, 0);
             this.pref_openPrefFolderB.Name = "pref_openPrefFolderB";
-            this.pref_openPrefFolderB.Size = new System.Drawing.Size(334, 26);
+            this.pref_openPrefFolderB.Size = new System.Drawing.Size(357, 26);
             this.pref_openPrefFolderB.TabIndex = 11;
             this.pref_openPrefFolderB.Text = "Open Preferences Folder";
             this.pref_openPrefFolderB.UseVisualStyleBackColor = true;
@@ -434,7 +476,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_openFilesWithTB.Location = new System.Drawing.Point(137, 241);
             this.pref_openFilesWithTB.Name = "pref_openFilesWithTB";
-            this.pref_openFilesWithTB.Size = new System.Drawing.Size(551, 26);
+            this.pref_openFilesWithTB.Size = new System.Drawing.Size(559, 26);
             this.pref_openFilesWithTB.TabIndex = 8;
             this.pref_openFilesWithTB.Text = "explorer";
             this.pref_openFilesWithTB.TextChanged += new System.EventHandler(this.Pref_openFilesWithTB_TextChanged);
@@ -480,7 +522,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_archiveSetupFolderB.Location = new System.Drawing.Point(182, 71);
             this.pref_archiveSetupFolderB.Name = "pref_archiveSetupFolderB";
-            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(506, 26);
+            this.pref_archiveSetupFolderB.Size = new System.Drawing.Size(546, 26);
             this.pref_archiveSetupFolderB.TabIndex = 3;
             this.pref_archiveSetupFolderB.Text = "C:\\";
             this.pref_archiveSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -507,7 +549,7 @@ namespace AlgoSetup
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pref_tempSetupFolderB.Location = new System.Drawing.Point(168, 28);
             this.pref_tempSetupFolderB.Name = "pref_tempSetupFolderB";
-            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(520, 26);
+            this.pref_tempSetupFolderB.Size = new System.Drawing.Size(560, 26);
             this.pref_tempSetupFolderB.TabIndex = 1;
             this.pref_tempSetupFolderB.Text = "C:\\";
             this.pref_tempSetupFolderB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -540,6 +582,7 @@ namespace AlgoSetup
             this.Text = "Algo Setup";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.setup_tempSetupGB.ResumeLayout(false);
             this.setup_tempSetupGB.PerformLayout();
             this.setup_archiveSetupGB.ResumeLayout(false);
@@ -598,6 +641,9 @@ namespace AlgoSetup
         private System.Windows.Forms.SplitContainer pref_editCodeOpenPrefSC;
         private System.Windows.Forms.Button pref_openPrefFolderB;
         private System.Windows.Forms.ToolTip pref_tempSetupFolderTT;
+        private System.Windows.Forms.Label pref_colorThemeL;
+        private System.Windows.Forms.ComboBox pref_colorThemeCB;
+        private System.Windows.Forms.Button pref_openWithOfdB;
     }
 }
 

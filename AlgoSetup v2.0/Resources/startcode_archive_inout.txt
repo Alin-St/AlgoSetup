@@ -1,3 +1,4 @@
+// Every instance of $$filename$$ will be replaced by the in/out filename.
 #include <iostream>
 #include <fstream>
 

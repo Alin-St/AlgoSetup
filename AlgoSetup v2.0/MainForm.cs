@@ -13,6 +13,8 @@ namespace AlgoSetup
         public MainForm()
         {
             InitializeComponent();
+
+            pref_colorThemeCB.SelectedIndex = 0;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -46,9 +48,9 @@ namespace AlgoSetup
             if (ValidFilename(text))
             {
                 Set_temp_cppFilename(text);
-                setup_temp_cppFilenameTB.BackColor = DefaultBackColor;
+                Set_isTempCppCorrect(true);
             }
-            else setup_temp_cppFilenameTB.BackColor = Color.IndianRed;
+            else Set_isTempCppCorrect(false);
         }
 
         private void Setup_temp_inOutFilesCB_CheckedChanged(object sender, EventArgs e)
@@ -63,9 +65,9 @@ namespace AlgoSetup
             if (ValidFilename(text))
             {
                 Set_temp_inOutFilename(text);
-                setup_temp_inOutFilenameTB.BackColor = DefaultBackColor;
+                Set_isTempInOutCorrect(true);
             }
-            else setup_temp_inOutFilenameTB.BackColor = Color.IndianRed;
+            else Set_isTempInOutCorrect(false);
         }
 
         private void Setup_temp_openB_Click(object sender, EventArgs e)
@@ -128,9 +130,9 @@ namespace AlgoSetup
             if (ValidFilename(text))
             {
                 Set_archive_cppFilename(text);
-                setup_archive_cppFilenameTB.BackColor = DefaultBackColor;
+                Set_isArchiveCppCorrect(true);
             }
-            else setup_archive_cppFilenameTB.BackColor = Color.IndianRed;
+            else Set_isArchiveCppCorrect(false);
         }
 
         private void Setup_archive_inOutFilesCB_CheckedChanged(object sender, EventArgs e)
@@ -145,9 +147,9 @@ namespace AlgoSetup
             if (ValidFilename(text))
             {
                 Set_archive_folder(text);
-                setup_archive_folderTB.BackColor = DefaultBackColor;
+                Set_isArchiveFolderCorrect(true);
             }
-            else setup_archive_folderTB.BackColor = Color.IndianRed;
+            else Set_isArchiveFolderCorrect(false);
         }
 
         private void Setup_archive_openB_Click(object sender, EventArgs e)
@@ -218,6 +220,7 @@ namespace AlgoSetup
             using (var dialog = new FolderBrowserDialog())
             {
                 dialog.SelectedPath = tempRootFolder;
+                dialog.Description = "Select the Temp Setup Folder.";
                 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -241,6 +244,7 @@ namespace AlgoSetup
             using (var dialog = new FolderBrowserDialog())
             {
                 dialog.SelectedPath = archiveRootFolder;
+                dialog.Description = "Select the archive setup folder.";
 
                 if (dialog.ShowDialog() == DialogResult.OK)
                 {
@@ -287,9 +291,54 @@ namespace AlgoSetup
             Set_openWith(pref_openFilesWithTB.Text);
         }
 
+        private void Pref_openWithOfdB_Click(object sender, EventArgs e)
+        {
+            using (var dialog = new OpenFileDialog())
+            {
+                dialog.Filter = "Executables|*.exe|All files|*.*";
+                dialog.Title = "Select the program you want to open files with.";
+
+                try { dialog.InitialDirectory = Path.GetDirectoryName(openWith); }
+                catch { }
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    Set_openWith(dialog.FileName);
+                }
+            }
+        }
+
         private void Pref_saveDataForAutocompleteCB_CheckedChanged(object sender, EventArgs e)
         {
             Set_saveAutocomplete(pref_saveDataForAutocompleteCB.Checked);
+        }
+
+        private void Pref_colorThemeCB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Set_colorTheme((ColorTheme)Enum.Parse(typeof(ColorTheme), pref_colorThemeCB.Text));
+        }
+
+        bool dontSetSizeChangedFlag = false;
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (!dontSetSizeChangedFlag)
+                Set_sizeChanged(true);
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!sizeChanged && tabControl.SelectedTab == setupTP)
+            {
+                dontSetSizeChangedFlag = true;
+                Size = new Size(816, 331);
+                dontSetSizeChangedFlag = false;
+            }
+            else if (!sizeChanged && tabControl.SelectedTab == preferencesTP)
+            {
+                dontSetSizeChangedFlag = true;
+                Size = new Size(816, 500);
+                dontSetSizeChangedFlag = false;
+            }
         }
     }
 }
